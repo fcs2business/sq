@@ -1,0 +1,12 @@
+<div class="container padded">
+	<div class="action-nav-normal action-nav-line">
+		<div class="row action-nav-row">
+			<div class="col-sm-3 action-nav-button" ng-repeat="menu in subMenus">
+				<a href="{{menu.url}}" title="{{menu.nome}}">
+					<i class="{{menu.icone}}"></i>
+					<span>{{menu.nome}}</span>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

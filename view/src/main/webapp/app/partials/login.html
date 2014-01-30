@@ -1,0 +1,54 @@
+
+<div class="box-header modal-header">
+	<span class="title">Login</span>
+</div>
+<div class="modal-body padded">
+	<div class="login box" style="margin-top: 80px;">
+		<div ng-controller="AlertsCtrl" ng-cloak>
+			<alert ng-repeat="alert in alerts()" type="alert.type"
+				close="closeAlert($index)">{{alert.msg}}</alert>
+		</div>
+		<div class="box-content padded">
+			<form class="separate-sections" ng-submit="login()" method="post"
+				ng-if="getPerfis().length == 0">
+				<div class="input-group addon-left">
+					<span class="input-group-addon" href="#">
+						<i class="icon-user"></i>
+					</span>
+					<input type="text" placeholder="usu&aacute;rio"
+						ng-model="credenciais.username">
+				</div>
+
+				<div class="input-group addon-left">
+					<span class="input-group-addon" href="#">
+						<i class="icon-key"></i>
+					</span>
+					<input type="password" placeholder="senha"
+						ng-model="credenciais.password">
+				</div>
+				<button class="btn btn-blue btn-block" type="submit">
+					Login
+					<i class="icon-signin"></i>
+				</button>
+
+			</form>
+			<div class="box-content padded" ng-if="getPerfis().length != 0">
+				<div class="box-content padded">
+					<p>Selecione um perfil:</p>
+					<select class="form-control" ng-model="perfil"
+						ng-options="opt.papel +' ( '+ opt.empresa+' )' for opt in getPerfis()"></select>
+				</div>
+				<button class="btn btn-blue btn-block" type="button"
+					ng-click="entrar()">
+					Entrar
+					<i class="icon-signin"></i>
+				</button>
+				<button class="btn btn-red btn-block" type="button"
+					ng-click="cancelarLogin()">
+					<i class="icon-signout"></i>
+					Cancelar
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

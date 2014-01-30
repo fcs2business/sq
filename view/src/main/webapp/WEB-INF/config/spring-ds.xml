@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/jdbc 
+                           http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+                           http://www.springframework.org/schema/tx
+						   http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+                           http://www.springframework.org/schema/data/jpa
+                           http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+
+	<jpa:repositories base-package="br.com.bestsmart.smartquote.model" />
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"
+		p:entityManagerFactory-ref="entityManagerFactory" />
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="com.mysql.jdbc.Driver" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/erp" />
+		<property name="username" value="root" />
+		<property name="password" value="root" />
+		<property name="idleConnectionTestPeriodInSeconds" value="60" />
+		<property name="idleMaxAgeInSeconds" value="240" />
+		<property name="maxConnectionsPerPartition" value="3" />
+		<property name="minConnectionsPerPartition" value="1" />
+		<property name="partitionCount" value="3" />
+		<property name="acquireIncrement" value="5" />
+		<property name="statementsCacheSize" value="100" />
+	</bean>
+
+	<!-- <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"> 
+		<property name="persistenceUnitName" value="model" /> <property name="dataSource" 
+		ref="dataSource" /> <property name="jpaVendorAdapter"> <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"> 
+		<property name="databasePlatform" value="com.mysql.MySqlDialect" /> <property 
+		name="showSql" value="true" /> <property name="generateDdl" value="true" 
+		/> </bean> </property> </bean> -->
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
+		p:dataSource-ref="dataSource" p:persistenceUnitName="model">
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<property name="showSql" value="true" />
+				<property name="generateDdl" value="true" />
+			</bean>
+		</property>
+		<property name="jpaProperties">
+			<props>
+				<prop key="hibernate.enable_lazy_load_no_trans">true</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

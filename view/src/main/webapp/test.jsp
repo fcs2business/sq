@@ -1,0 +1,1 @@
+<%response.sendRedirect("test/e2e/runner.html"); %>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="model">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>br.com.bestsmart.smartquote.model.entity.AdicionalNatureza</class>
+		<class>br.com.bestsmart.smartquote.model.entity.Atualizacao</class>
+		<class>br.com.bestsmart.smartquote.model.entity.BasesIcms</class>
+		<class>br.com.bestsmart.smartquote.model.entity.CanalVenda</class>
+		<class>br.com.bestsmart.smartquote.model.entity.Cfop</class>
+		<class>br.com.bestsmart.smartquote.model.entity.CodTributacao</class>
+		<class>br.com.bestsmart.smartquote.model.entity.CodVinculacao</class>
+		<class>br.com.bestsmart.smartquote.model.entity.Cofins</class>
+		<class>br.com.bestsmart.smartquote.model.entity.Credencial</class>
+		<class>br.com.bestsmart.smartquote.model.entity.Departamento</class>
+		<class>br.com.bestsmart.smartquote.model.entity.DestReducao</class>
+		<class>br.com.bestsmart.smartquote.model.entity.DocumentoFiscal</class>
+		<class>br.com.bestsmart.smartquote.model.entity.Empresa</class>
+		<class>br.com.bestsmart.smartquote.model.entity.Endereco</class>
+		<class>br.com.bestsmart.smartquote.model.entity.EspecieDocFiscal</class>
+		<class>br.com.bestsmart.smartquote.model.entity.Icms</class>
+		<class>br.com.bestsmart.smartquote.model.entity.ImpostoImportacao</class>
+		<class>br.com.bestsmart.smartquote.model.entity.Inss</class>
+		<class>br.com.bestsmart.smartquote.model.entity.Ipi</class>
+		<class>br.com.bestsmart.smartquote.model.entity.Iss</class>
+		<class>br.com.bestsmart.smartquote.model.entity.Mensagem</class>
+		<class>br.com.bestsmart.smartquote.model.entity.Menu</class>
+		<class>br.com.bestsmart.smartquote.model.entity.Mercado</class>
+		<class>br.com.bestsmart.smartquote.model.entity.NaturezaOperacao</class>
+		<class>br.com.bestsmart.smartquote.model.entity.OpEntregaFutAntecipada</class>
+		<class>br.com.bestsmart.smartquote.model.entity.Papel</class>
+		<class>br.com.bestsmart.smartquote.model.entity.ParametroGlobal</class>
+		<class>br.com.bestsmart.smartquote.model.entity.Perfil</class>
+		<class>br.com.bestsmart.smartquote.model.entity.Permissao</class>
+		<class>br.com.bestsmart.smartquote.model.entity.Pis</class>
+		<class>br.com.bestsmart.smartquote.model.entity.Telefone</class>
+		<class>br.com.bestsmart.smartquote.model.entity.TipoBase</class>
+		<class>br.com.bestsmart.smartquote.model.entity.TipoNatureza</class>
+		<class>br.com.bestsmart.smartquote.model.entity.Usuario</class>
+		<properties>
+			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+
+			<property name="hibernate.hbm2ddl.auto" value="create" />
+			<property name="hibernate.show_sql" value="true" />
+			<!-- <property name="hibernate.ejb.event.post-insert"
+				value="org.hibernate.ejb.event.EJB3PostInsertEventListener,org.hibernate.envers.event.AuditEventListener" />
+			<property name="hibernate.ejb.event.post-update"
+				value="org.hibernate.ejb.event.EJB3PostUpdateEventListener,org.hibernate.envers.event.AuditEventListener" />
+			<property name="hibernate.ejb.event.post-delete"
+				value="org.hibernate.ejb.event.EJB3PostDeleteEventListener,org.hibernate.envers.event.AuditEventListener" />
+			<property name="hibernate.ejb.event.pre-collection-update"
+				value="org.hibernate.envers.event.AuditEventListener" />
+			<property name="hibernate.ejb.event.pre-collection-remove"
+				value="org.hibernate.envers.event.AuditEventListener" />
+			<property name="hibernate.ejb.event.post-collection-recreate"
+				value="org.hibernate.envers.event.AuditEventListener" /> -->
+		</properties>
+
+	</persistence-unit>
+</persistence>

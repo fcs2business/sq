@@ -1,0 +1,1 @@
+<%response.sendRedirect("test/jasmine/SpecRunner.html"); %>
